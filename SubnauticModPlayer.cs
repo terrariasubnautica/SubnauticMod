@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using SubnauticMod.Content.Items;
 
 namespace SubnauticMod {
 	public class SubnauticModPlayer : ModPlayer {
@@ -8,6 +9,14 @@ namespace SubnauticMod {
 		public bool OxygenTank3 = false;
 		public bool OxygenTank4 = false;
 		public bool Fins = false;
+
+		public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
+		{
+			Item StarterLootBag = new Item();
+			StarterLootBag.SetDefaults(ItemType<StarterBag>());
+			StarterLootBag.stack = 1;
+			items.Add(item);
+		}
 
 		public override void ResetEffects() {
 			OxygenTank = false;
