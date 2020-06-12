@@ -1,3 +1,0 @@
-displayName = Subnautica x Terraria
-author = Lots of People
-version = 0.1.2
