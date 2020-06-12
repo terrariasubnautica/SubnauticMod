@@ -1,7 +1,7 @@
 ﻿using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace SubnauticMod.Content.Items.Materials{
+namespace terrariasubnautica.Content.Items.Materials {
     public class UraniniteCrystal : ModItem {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Uraninte");
