@@ -5,25 +5,36 @@ using Terraria.ObjectData;
 
 namespace SubnauticMod.Content.Items.Accessories {
 	public class OxygenTank : ModItem {
+
+		protected int oxygenCapacityIncrease = 200;
+		protected int value = 1000;
+		protected int rarity = ItemRarityID.Green;
+		protected string toolTip = "Increases Oxygen";
+		protected string displayName = $"Standard {SubnauticMod.O2} Tank";
+
 		public override void SetStaticDefaults() {
 			//DisplayName.SetDefault("TutorialSword"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			Tooltip.SetDefault("Increases Oxygen");
-			DisplayName.SetDefault("Standard O2 Tank");
+			Tooltip.SetDefault(toolTip);
+			DisplayName.SetDefault(displayName); 
 		}
 
 		public override void SetDefaults() {
 			item.accessory = true;
 			item.width = 40;
 			item.height = 40;
-			item.value = 1000;
-			item.rare = ItemRarityID.Green;
+			item.value = value;
+			item.rare = rarity;
 		}
+
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.Subnautic().OxygenTank = true;
 		}
+
 		public override void UpdateEquip(Player player) {
-			player.breath += 200;
+			player.breath += oxygenCapacityIncrease;
+			//player.breathMax += oxygenCapacityIncrease; //breathMax is broken in Terraria 1.3?
 		}
+
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.DirtBlock, 1);

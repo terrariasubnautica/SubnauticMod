@@ -2,6 +2,12 @@ using Terraria.ModLoader;
 
 namespace SubnauticMod {
 	public class SubnauticMod : Mod {
+
+		/// <summary>
+		/// Short-hand string for O-subscript-2
+		/// </summary>
+		public static string O2 = "O\x2082";
+
 		public SubnauticMod() {
 			Properties = new ModProperties() {
 				Autoload = true,
