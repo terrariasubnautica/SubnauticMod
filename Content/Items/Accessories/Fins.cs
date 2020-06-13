@@ -6,7 +6,7 @@ using Terraria.ObjectData;
 namespace SubnauticMod.Content.Items.Accessories {
 	public class Fins : ModItem {
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Allows the player to move through water without being slown down");
+			Tooltip.SetDefault("Allows the player to move through water without being slowed down");
 		}
 
 		public override void SetDefaults() {
