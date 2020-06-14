@@ -1,12 +1,9 @@
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace SubnauticMod.Content.Items.Accessories {
 	//public class OxygenTank2 : ModItem {
-	public class OxygenTank2 : OxygenTank
-	{
+	public class OxygenTank2 : OxygenTank {
 		//public override void SetStaticDefaults() {
 		//	//DisplayName.SetDefault("TutorialSword"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
 		//	Tooltip.SetDefault("Increases Oxygen Substantially");
@@ -34,8 +31,7 @@ namespace SubnauticMod.Content.Items.Accessories {
 		//	recipe.AddRecipe();
 		//}
 
-		public OxygenTank2()
-		{
+		public OxygenTank2() {
 			oxygenCapacityIncrease = 300;
 			displayName = $"High Capacity {SubnauticMod.O2} Tank";
 			toolTip = "Increases Oxygen significantly";
@@ -43,8 +39,7 @@ namespace SubnauticMod.Content.Items.Accessories {
 			rarity = ItemRarityID.Green;
 		}
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
+		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.Subnautic().OxygenTank2 = true;
 		}
 

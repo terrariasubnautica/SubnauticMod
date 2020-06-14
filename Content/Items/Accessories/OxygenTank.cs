@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace SubnauticMod.Content.Items.Accessories {
 	public class OxygenTank : ModItem {
@@ -15,7 +14,7 @@ namespace SubnauticMod.Content.Items.Accessories {
 		public override void SetStaticDefaults() {
 			//DisplayName.SetDefault("TutorialSword"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
 			Tooltip.SetDefault(toolTip);
-			DisplayName.SetDefault(displayName); 
+			DisplayName.SetDefault(displayName);
 		}
 
 		public override void SetDefaults() {

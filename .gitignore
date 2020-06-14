@@ -26,5 +26,5 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
-.htm
-.sln
+
+*.htm

@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace SubnauticMod.Content.Items.Accessories {
 	public class Fins : ModItem {
