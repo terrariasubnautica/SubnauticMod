@@ -33,5 +33,9 @@ namespace SubnauticMod.Content.Items.Accessories {
 			recipe.AddRecipe();
 		}
 
+		public override bool CanEquipAccessory(Player player, int slot) {
+			return !(player.Subnautic().Fins || player.accFlipper);
+		}
+
 	}
 }

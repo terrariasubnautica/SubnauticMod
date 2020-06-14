@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 namespace SubnauticMod.Content.Items.Accessories {
 	public class OxygenTank : ModItem {
 
-		protected int oxygenCapacityIncrease = 200;
+		protected int oxygenCapacityIncrease = 133;
 		protected int value = 1000;
 		protected int rarity = ItemRarityID.Green;
 		protected string toolTip = "Increases Oxygen";
@@ -30,7 +30,7 @@ namespace SubnauticMod.Content.Items.Accessories {
 		}
 
 		public override void UpdateEquip(Player player) {
-			player.breath += oxygenCapacityIncrease;
+			player.breathMax += oxygenCapacityIncrease;
 			//player.breathMax += oxygenCapacityIncrease; //breathMax is broken in Terraria 1.3?
 		}
 
@@ -42,5 +42,8 @@ namespace SubnauticMod.Content.Items.Accessories {
 			recipe.AddRecipe();
 		}
 
+		public override bool CanEquipAccessory(Player player, int slot) {
+			return !player.Subnautic().OxygenTank;
+		}
 	}
 }
