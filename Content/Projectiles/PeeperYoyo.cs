@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -42,7 +37,7 @@ namespace SubnauticMod.Content.Projectiles {
 		// Any AI method can be used for dust, spawning projectiles, etc specific to your yoyo.
 
 		public override void PostAI() {
-			if(Main.rand.NextBool()) {
+			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(projectile.position, 6, 6, DustID.GoldCoin);
 				dust.noGravity = true;
 				dust.scale = 1f;

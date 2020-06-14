@@ -6,7 +6,7 @@ namespace SubnauticMod {
 		/// <summary>
 		/// Short-hand string for O-subscript-2
 		/// </summary>
-		public static string O2 = "O\x2082";
+		public static string O2 => "O\x2082";
 
 		public SubnauticMod() {
 			Properties = new ModProperties() {
@@ -19,8 +19,8 @@ namespace SubnauticMod {
 
 		public override void PostSetupContent() {
 			Mod drp = ModLoader.GetMod("DiscordRP");
-			if(drp != null) {
-				drp.Call("MainMenu", "Subnautica Mod", "In Main Menu", "mod_placeholder", "Subnautica Mod");
+			if (drp != null) {
+				drp.Call("MainMenu", "Subnautica Mod", "In Main Menu", "mod_subnautic", "Subnautica Mod");
 			}
 		}
 	}

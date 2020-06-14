@@ -1,13 +1,10 @@
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
 
 namespace SubnauticMod.Content.Items.Accessories {
 	public class OxygenTank3 : OxygenTank {
-		
-		public OxygenTank3()
-		{
+
+		public OxygenTank3() {
 			oxygenCapacityIncrease = 400;
 			displayName = $"Ultra High Capacity {SubnauticMod.O2} Tank";
 			toolTip = "Increases Oxygen substantially";
@@ -15,8 +12,7 @@ namespace SubnauticMod.Content.Items.Accessories {
 			rarity = ItemRarityID.Green;
 		}
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
+		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.Subnautic().OxygenTank3 = true;
 		}
 

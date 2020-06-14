@@ -1,14 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.Enums;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -37,8 +30,8 @@ namespace SubnauticMod.Content.Tiles {
 
 		public override void AnimateTile(ref int frame, ref int frameCounter) {
 			frameCounter++;
-			if(frameCounter == 6) {
-				if(open) {
+			if (frameCounter == 6) {
+				if (open) {
 					frame = Math.Min(frame + 1, 2);
 				}
 				else {
@@ -53,10 +46,10 @@ namespace SubnauticMod.Content.Tiles {
 		}
 
 		public override void NearbyEffects(int i, int j, bool closer) {
-			if(closer) {
+			if (closer) {
 				Player player = Main.LocalPlayer;
 				float dist = Vector2.DistanceSquared(new Vector2(i * 16 - 8, j * 16 - 8), player.position);
-				if(dist <= 2500) {
+				if (dist <= 2500) {
 					open = true;
 				}
 				else {
