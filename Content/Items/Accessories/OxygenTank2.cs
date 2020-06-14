@@ -1,7 +1,10 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace SubnauticMod.Content.Items.Accessories {
+
+	[AutoloadEquip(EquipType.Back)]
 	public class OxygenTank2 : OxygenTank {
 
 		public OxygenTank2() {
