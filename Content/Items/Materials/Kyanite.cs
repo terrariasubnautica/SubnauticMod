@@ -1,10 +1,15 @@
-﻿using Terraria.ID;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SubnauticMod.Content.Items.Materials {
-	public class UraniniteCrystal : ModItem {
+	public class Kyanite : ModItem {
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Uraninite");
 		}
 
 		public override void SetDefaults() {
@@ -15,6 +20,9 @@ namespace SubnauticMod.Content.Items.Materials {
 			item.useTime = 10;
 			item.useAnimation = 10;
 			item.autoReuse = true;
+			item.rare = ItemRarityID.Cyan;
+			item.consumable = true;
+			item.createTile = ModContent.TileType<Tiles.Kyanite>();
 		}
 	}
 }
