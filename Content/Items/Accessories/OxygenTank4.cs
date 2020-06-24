@@ -6,6 +6,7 @@ namespace SubnauticMod.Content.Items.Accessories {
 
 	[AutoloadEquip(EquipType.Back)]
 	public class OxygenTank4 : OxygenTank {
+		public override string Texture => "SubnauticMod/Content/Items/Accessories/OxygenTank";
 
 		public OxygenTank4() {
 			oxygenCapacityIncrease = 400;
