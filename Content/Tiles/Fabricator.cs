@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Steamworks;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -43,7 +42,7 @@ namespace SubnauticMod.Content.Tiles {
 				if (open) {
 					frame = Math.Min(frame + 1, 2);
 				}
-				else if (closeDelay<=0){
+				else if (closeDelay <= 0) {
 					frame = Math.Max(frame - 1, 0);
 				}
 				frameCounter = 0;
@@ -60,28 +59,9 @@ namespace SubnauticMod.Content.Tiles {
 				open = false;
 		}
 
-		private FabricatorEntity GetEntity(int i, int j) {
-			int index = ModContent.GetInstance<FabricatorEntity>().Find(i, j);
-			if (index == -1) {
-				return null;
-			}
-			return (FabricatorEntity) TileEntity.ByID[index];
-		}
-
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
 			Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<Items.Placeables.Fabricator>());
 			ModContent.GetInstance<FabricatorEntity>().Kill(i, j);
-		}
-
-		//this is for debugging
-		public override bool NewRightClick(int i, int j) {
-			FabricatorEntity entity = GetEntity(i, j);
-			if (entity == null) {
-				return false;
-			}
-
-			Main.NewText($"Found Fabricator, {entity.open}");
-			return true;
 		}
 
 	}
