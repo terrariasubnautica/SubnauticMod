@@ -33,7 +33,6 @@ namespace SubnauticMod.Content.Items.Accessories {
 
 		public override void UpdateEquip(Player player) {
 			player.breathMax += oxygenCapacityIncrease;
-			//player.breathMax += oxygenCapacityIncrease; //breathMax is broken in Terraria 1.3?
 		}
 
 		public override void AddRecipes() {

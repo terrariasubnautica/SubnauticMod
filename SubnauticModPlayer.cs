@@ -16,13 +16,19 @@ namespace SubnauticMod {
 		}
 
 		public override void ResetEffects() {
+			SubnauticMod.Instance.o2Level.visible = false;
 			OxygenTank = false;
 			Fins = false;
 			player.breathMax = 200;
 		}
 
+		public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff) {
+			if (OxygenTank)
+				SubnauticMod.Instance.o2Level.visible = true;
+		}
+
 		public override void PostUpdateRunSpeeds() {
-			if (player.HeldItem.type == ModContent.ItemType<Content.Items.SeaGlide>()) {
+			if (player.HeldItem.type == ModContent.ItemType<SeaGlide>()) {
 				if (player.wet) {
 					player.runAcceleration *= 3;
 					player.maxRunSpeed *= 3;
