@@ -12,6 +12,8 @@ namespace SubnauticMod.Content.Tiles {
 
 		public bool open = false;
 		public int curFrame = 0;
+		public int closeDelay = 60;
+		public int closeDelayMax = 60;
 
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
@@ -36,11 +38,12 @@ namespace SubnauticMod.Content.Tiles {
 
 		public override void AnimateTile(ref int frame, ref int frameCounter) {
 			frameCounter++;
+			closeDelay = Math.Max(0, closeDelay - 1);
 			if (frameCounter == 6) {
 				if (open) {
 					frame = Math.Min(frame + 1, 2);
 				}
-				else {
+				else if (closeDelay<=0){
 					frame = Math.Max(frame - 1, 0);
 				}
 				frameCounter = 0;

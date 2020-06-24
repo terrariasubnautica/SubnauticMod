@@ -24,8 +24,10 @@ namespace SubnauticMod.Content.Tiles {
 			open = dist <= 50f;
 
 			Fabricator fabtile = (Fabricator) TileLoader.GetTile(ModContent.TileType<Fabricator>());
-			if (fabtile.curFrame != 1)
-				fabtile.open |= open;
+			if (fabtile.curFrame != 1 && open) {
+				fabtile.open = open;
+				fabtile.closeDelay = fabtile.closeDelayMax;
+			}
 		}
 
 		public override bool ValidTile(int i, int j) {
