@@ -8,7 +8,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SubnauticMod.Content.Items.Materials {
-	public class Kyanite : ModItem {
+	public class KyaniteChunk : ModItem {
+
+		public override string Texture => "SubnauticMod/Content/Items/Materials/Kyanite";
+		public override void SetStaticDefaults() {
+			Tooltip.SetDefault("[c/FF0000:Debug Object]");
+		}
 
 		public override void SetDefaults() {
 			item.width = 16;
@@ -20,7 +25,7 @@ namespace SubnauticMod.Content.Items.Materials {
 			item.autoReuse = true;
 			item.rare = ItemRarityID.Cyan;
 			item.consumable = true;
-			item.createTile = ModContent.TileType<Tiles.Kyanite>();
+			item.createTile = ModContent.TileType<Tiles.KyaniteChunk>();
 		}
 	}
 }
