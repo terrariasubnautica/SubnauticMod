@@ -15,11 +15,13 @@ namespace SubnauticMod {
 				}
 				SubnauticModPlayer subPlayer = lPlayer.GetModPlayer<SubnauticModPlayer>();
 				if (subPlayer != null) {
-					if (subPlayer.OxygenTank && !hasLavaBreath) {
+					if (subPlayer.OxygenTank && !hasLavaBreath && !lPlayer.dead && !lPlayer.ghost) {
+						SubnauticMod.Instance.o2Level.visible = true;
 						return;
 					}
 				}
 			}
+			SubnauticMod.Instance.o2Level.visible = false;
 			orig();
 		}
 
