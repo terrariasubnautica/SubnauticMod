@@ -29,11 +29,13 @@ namespace SubnauticMod.UI {
 			Player player = Main.LocalPlayer;
 
 			//YO THIS MATH CONFUSE ME A LOT!!!
-			Vector2 playerPos = player.position - Main.screenPosition;
+			Vector2 playerPos = player.position - Main.ViewPosition;
 			playerPos.X += player.width / 2;
+			playerPos.X *= Main.GameViewMatrix.Zoom.X;
+			playerPos.Y *= Main.GameViewMatrix.Zoom.Y;
 			playerPos /= Main.UIScale;
 			float playerScaleX = (playerPos.X - 50f);
-			float playerScaleY = (playerPos.Y - (player.height - 10f) * Main.GameViewMatrix.Zoom.Y);
+			float playerScaleY = (playerPos.Y - (player.height - 10f));
 
 			back.Left.Set(playerScaleX, 0f);
 			fill.Left.Set(playerScaleX + 2f, 0f);
