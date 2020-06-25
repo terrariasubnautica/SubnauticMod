@@ -1,13 +1,15 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.Utilities;
 
 namespace SubnauticMod.Content.Tiles {
-	public class Kyanite : ModTile {
+	public class SandstoneOutcrop : ModTile {
 
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
@@ -16,12 +18,11 @@ namespace SubnauticMod.Content.Tiles {
 			Main.tileLavaDeath[Type] = false;
 			Main.tileNoAttach[Type] = true;
 			Main.tileSpelunker[Type] = true; // The tile will be affected by spelunker highlighting
-			Main.tileValue[Type] = 510; // Metal Detector value, see https://terraria.gamepedia.com/Metal_Detector
-			AddMapEntry(new Color(109, 252, 243));
+			Main.tileValue[Type] = 110; // Metal Detector value, see https://terraria.gamepedia.com/Metal_Detector
+			AddMapEntry(new Color(156, 142, 100));
 
-			drop = ModContent.ItemType<Items.Materials.Kyanite>();
-			mineResist = 3f;
-			dustType = 20;
+			mineResist = 2f;
+			dustType = DustID.Copper;
 			soundType = SoundID.Tink;
 			soundStyle = 1;
 
@@ -33,6 +34,16 @@ namespace SubnauticMod.Content.Tiles {
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.addTile(Type);
+		}
+
+		public override bool Drop(int i, int j) {
+			int select = new WeightedRandom<int>(
+				((int) ItemID.GoldOre, 1d).ToTuple(),
+				((int) ItemID.LeadOre, 1d).ToTuple(),
+				((int) ItemID.SilverOre, 1d).ToTuple()
+			);
+			Item.NewItem(i * 16, j * 16, 16, 16, select);
+			return false;
 		}
 	}
 }

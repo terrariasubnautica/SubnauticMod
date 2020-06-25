@@ -17,17 +17,13 @@ namespace SubnauticMod {
 		}
 
 		public override void ResetEffects() {
-			SubnauticMod.Instance.o2Level.visible = false;
 			OxygenTank = false;
 			Fins = false;
 			player.breathMax = 200;
 		}
 
 		public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff) {
-			if (OxygenTank) {
-				SubnauticMod.Instance.o2Level.visible = true;
-			}
-			else {
+			if (!OxygenTank) {
 				player.breath = Math.Min(player.breath, player.breathMax);
 			}
 		}

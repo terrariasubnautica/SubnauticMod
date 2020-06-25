@@ -7,8 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace SubnauticMod.Content.Tiles {
-	public class Kyanite : ModTile {
-
+	public class ZirconiumChunk : ModTile {
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
 			Main.tileSolid[Type] = false;
@@ -16,16 +15,15 @@ namespace SubnauticMod.Content.Tiles {
 			Main.tileLavaDeath[Type] = false;
 			Main.tileNoAttach[Type] = true;
 			Main.tileSpelunker[Type] = true; // The tile will be affected by spelunker highlighting
-			Main.tileValue[Type] = 510; // Metal Detector value, see https://terraria.gamepedia.com/Metal_Detector
-			AddMapEntry(new Color(109, 252, 243));
+			Main.tileValue[Type] = 150; // Metal Detector value, see https://terraria.gamepedia.com/Metal_Detector
+			AddMapEntry(new Color(58, 91, 122));
 
-			drop = ModContent.ItemType<Items.Materials.Kyanite>();
-			mineResist = 3f;
+			mineResist = 6f;
 			dustType = 20;
 			soundType = SoundID.Tink;
 			soundStyle = 1;
 
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.AnchorTop = AnchorData.Empty;
 			TileObjectData.newTile.AnchorLeft = AnchorData.Empty;
@@ -33,6 +31,11 @@ namespace SubnauticMod.Content.Tiles {
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.addTile(Type);
+		}
+
+
+		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
+			Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<Items.Materials.Zirconium>(), 6);
 		}
 	}
 }
