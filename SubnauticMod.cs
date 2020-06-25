@@ -27,11 +27,11 @@ namespace SubnauticMod {
 		}
 
 		public override void Load() {
+			SubnauticILEdits.InitializeOnHooks();
 			if (!Main.dedServ) {
 				breathResources = new UserInterface();
 				o2Level = new O2Level();
 				breathResources.SetState(o2Level);
-				SubnauticILEdits.Initialize();
 			}
 		}
 

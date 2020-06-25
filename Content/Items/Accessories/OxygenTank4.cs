@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,10 +13,6 @@ namespace SubnauticMod.Content.Items.Accessories {
 			toolTip = "Increases Oxygen significantly while also not decreasing swim speed";
 			value = 1000;
 			rarity = ItemRarityID.Green;
-		}
-
-		public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.Subnautic().OxygenTank = true;
 		}
 
 	}

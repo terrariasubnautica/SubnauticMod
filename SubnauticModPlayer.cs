@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SubnauticMod.Content.Items;
 using Terraria;
@@ -23,8 +24,12 @@ namespace SubnauticMod {
 		}
 
 		public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff) {
-			if (OxygenTank)
+			if (OxygenTank) {
 				SubnauticMod.Instance.o2Level.visible = true;
+			}
+			else {
+				player.breath = Math.Min(player.breath, player.breathMax);
+			}
 		}
 
 		public override void PostUpdateRunSpeeds() {

@@ -30,7 +30,7 @@ namespace SubnauticMod.UI {
 
 			//YO THIS MATH CONFUSE ME A LOT!!!
 			Vector2 playerPos = player.position - Main.ViewPosition;
-			playerPos.X += player.width / 2;
+			playerPos.X += player.width / 2f;
 			playerPos.X *= Main.GameViewMatrix.Zoom.X;
 			playerPos.Y *= Main.GameViewMatrix.Zoom.Y;
 			playerPos /= Main.UIScale;
