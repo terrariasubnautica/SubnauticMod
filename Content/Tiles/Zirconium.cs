@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 namespace SubnauticMod.Content.Tiles {
-	public class Kyanite : ModTile {
+	public class Zirconium : ModTile {
 
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
@@ -16,11 +16,11 @@ namespace SubnauticMod.Content.Tiles {
 			Main.tileLavaDeath[Type] = false;
 			Main.tileNoAttach[Type] = true;
 			Main.tileSpelunker[Type] = true; // The tile will be affected by spelunker highlighting
-			Main.tileValue[Type] = 510; // Metal Detector value, see https://terraria.gamepedia.com/Metal_Detector
-			AddMapEntry(new Color(109, 252, 243));
+			Main.tileValue[Type] = 150; // Metal Detector value, see https://terraria.gamepedia.com/Metal_Detector
+			AddMapEntry(new Color(58, 91, 122));
 
-			drop = ModContent.ItemType<Items.Materials.Kyanite>();
-			mineResist = 3f;
+			drop = ModContent.ItemType<Items.Materials.Zirconium>();
+			mineResist = 1f;
 			dustType = 20;
 			soundType = SoundID.Tink;
 			soundStyle = 1;
