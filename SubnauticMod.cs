@@ -27,8 +27,8 @@ namespace SubnauticMod {
 		}
 
 		public override void Load() {
-			SubnauticILEdits.InitializeOnHooks();
 			if (!Main.dedServ) {
+				SubnauticILEdits.InitializeOnHooks();
 				breathResources = new UserInterface();
 				o2Level = new O2Level();
 				breathResources.SetState(o2Level);
@@ -51,7 +51,7 @@ namespace SubnauticMod {
 			int ResourceIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Resource Bars"));
 			if (ResourceIndex != -1) {
 				layers.Insert(ResourceIndex, new LegacyGameInterfaceLayer(
-					"Honkai Impact 3: Laser Charge Level",
+					"Subnautica Mod: Oxygen Level",
 					delegate {
 						if (o2Level.visible && !Main.LocalPlayer.dead) {
 							breathResources.Update(Main._drawInterfaceGameTime);

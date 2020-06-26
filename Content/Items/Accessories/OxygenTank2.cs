@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,6 +16,5 @@ namespace SubnauticMod.Content.Items.Accessories {
 			value = 1000;
 			rarity = ItemRarityID.Green;
 		}
-
 	}
 }

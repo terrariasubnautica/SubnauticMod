@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using SubnauticMod.Content.Items;
+using SubnauticMod.Content.Items.Accessories;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -20,11 +21,13 @@ namespace SubnauticMod {
 			OxygenTank = false;
 			Fins = false;
 			player.breathMax = 200;
+			player.breath = Math.Min(player.breath, player.breathMax);
 		}
 
-		public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff) {
-			if (!OxygenTank) {
-				player.breath = Math.Min(player.breath, player.breathMax);
+		public override void PostUpdate() {
+			OxygenTank oxygenTank = player.GetOxygenTank().tank;
+			if (oxygenTank != null) {
+				oxygenTank.currentO2Hold = Math.Min(Math.Max(player.breath - 200, 0), oxygenTank.oxygenCapacityIncrease);
 			}
 		}
 
