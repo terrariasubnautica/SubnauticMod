@@ -18,16 +18,29 @@ namespace SubnauticMod {
 		}
 
 		public override void ResetEffects() {
+			player.breath = Math.Min(player.breath, player.breathMax);
 			OxygenTank = false;
 			Fins = false;
-			player.breathMax = 200;
-			player.breath = Math.Min(player.breath, player.breathMax);
 		}
 
-		public override void PostUpdate() {
+		public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff) {
 			OxygenTank oxygenTank = player.GetOxygenTank().tank;
 			if (oxygenTank != null) {
-				oxygenTank.currentO2Hold = Math.Min(Math.Max(player.breath - 200, 0), oxygenTank.oxygenCapacityIncrease);
+				if (player.breath == player.breathMax) {
+					if (oxygenTank.currentO2Hold < oxygenTank.oxygenCapacityIncrease) {
+						oxygenTank.currentO2Hold += 3;
+						oxygenTank.currentO2Hold = Math.Min(oxygenTank.oxygenCapacityIncrease, oxygenTank.currentO2Hold);
+						player.breath -= 3;
+					}
+				}
+				else if (player.breath < player.breathMax - 3) {
+					int oxygenNeed = player.breathMax - player.breath - 3;
+					if (oxygenTank.currentO2Hold > 0) {
+						int oxygenTankUsed = Math.Min(oxygenTank.currentO2Hold, oxygenNeed);
+						oxygenTank.currentO2Hold -= oxygenTankUsed;
+						player.breath += oxygenTankUsed;
+					}
+				}
 			}
 		}
 

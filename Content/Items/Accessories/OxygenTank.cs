@@ -62,8 +62,6 @@ namespace SubnauticMod.Content.Items.Accessories {
 
 		public override void UpdateEquip(Player player) {
 			player.Subnautic().OxygenTank = true;
-			player.breath += currentO2Hold;
-			player.breathMax += oxygenCapacityIncrease;
 		}
 
 		public override void AddRecipes() {
