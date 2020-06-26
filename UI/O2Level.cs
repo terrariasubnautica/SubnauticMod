@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using SubnauticMod.Content.Items.Accessories;
 using Terraria;
 using Terraria.UI;
 
@@ -27,6 +28,10 @@ namespace SubnauticMod.UI {
 
 		public override void Update(GameTime gameTime) {
 			Player player = Main.LocalPlayer;
+			OxygenTank tank = player.GetOxygenTank().tank;
+			if (player == null || tank == null) {
+				return;
+			}
 
 			//YO THIS MATH CONFUSE ME A LOT!!!
 			Vector2 playerPos = player.position - Main.ViewPosition;
@@ -41,8 +46,9 @@ namespace SubnauticMod.UI {
 			fill.Left.Set(playerScaleX + 2f, 0f);
 			back.Top.Set(playerScaleY, 0f);
 			fill.Top.Set(playerScaleY + 6f, 0f);
-			int charge = player.breath;
-			int maxCharge = player.breathMax;
+
+			int charge = player.breath + tank.currentO2Hold;
+			int maxCharge = player.breathMax + tank.oxygenCapacityIncrease;
 			float progress = (float) charge / (float) maxCharge;
 
 			fill.SetProgress(progress);

@@ -15,6 +15,5 @@ namespace SubnauticMod.Content.Items.Accessories {
 			value = 1000;
 			rarity = ItemRarityID.Green;
 		}
-
 	}
 }
